@@ -822,3 +822,163 @@ body {
 }
 
 
+
+/* =========================================================================
+   Aquadro POS Gourmet — Édition Pizzeria & Restauration
+   ========================================================================= */
+
+.badge-gourmet {
+  background: #FFF3EB;
+  color: #E87524;
+  border: 1px solid rgba(232, 117, 36, 0.25);
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-gourmet {
+  background: #E87524;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(232, 117, 36, 0.35);
+}
+
+.btn-gourmet:hover {
+  background: #D3641B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 117, 36, 0.45);
+}
+
+.download-card.gourmet {
+  border-color: #E9DCCB;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFBF7 100%);
+  margin-top: 24px;
+}
+
+.download-card.gourmet .os-icon svg path {
+  fill: #E87524;
+}
+
+.download-card.gourmet .download-heading {
+  color: #292522;
+}
+
+/* Gourmet Showcase Section */
+.gourmet-section {
+  padding: 96px 0;
+  background: linear-gradient(180deg, #FAF8F5 0%, #FFFFFF 100%);
+  border-top: 1px solid #E9DCCB;
+  border-bottom: 1px solid #E9DCCB;
+}
+
+.gourmet-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+
+.gourmet-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #292522;
+  margin-top: 12px;
+  letter-spacing: -0.02em;
+}
+
+.gourmet-header p {
+  color: #78716C;
+  font-size: 1.05rem;
+  margin-top: 12px;
+}
+
+.gourmet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.gourmet-card {
+  background: #FFFFFF;
+  border: 1px solid #E9DCCB;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-col: column;
+}
+
+.gourmet-card:hover {
+  transform: translateY(-4px);
+  border-color: #E87524;
+  box-shadow: 0 16px 24px -6px rgba(232, 117, 36, 0.12);
+}
+
+.gourmet-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #FFF3EB;
+  color: #E87524;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.gourmet-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #292522;
+  margin-bottom: 8px;
+}
+
+.gourmet-card .arabic-title {
+  font-size: 0.85rem;
+  color: #E87524;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.gourmet-card p {
+  font-size: 0.88rem;
+  color: #57534E;
+  line-height: 1.6;
+}
+
+.gourmet-cta-banner {
+  margin-top: 56px;
+  background: linear-gradient(135deg, #292522 0%, #1C1917 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: #FFFFFF;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.gourmet-cta-banner h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.gourmet-cta-banner p {
+  color: #A8A29E;
+  font-size: 0.92rem;
+  max-width: 580px;
+}
+
+@media (max-width: 768px) {
+  .gourmet-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px;
+  }
+}
