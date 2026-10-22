@@ -1,175 +1,150 @@
-// Aquadro POS — Direct Download & Release Metadata Engine
-// Déclenche le téléchargement direct de l'installeur Windows (.exe) sans redirection vers GitHub
+// Aquadro POS — Ultra-Modern Web Engine & Interactive Simulator
+// Gère le basculement d'éditions, la démo interactive hero, le simulateur live et le téléchargement direct
 
-const GITHUB_REPO = 'sigoulojia/aquadro-releases';
-const API_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
-let directDownloadUrl = `https://github.com/${GITHUB_REPO}/releases/latest/download/AquadroPOS_1.0.0_x64-setup.exe`;
+let demoMozzarellaStock = 5.76;
+const MARGHERITA_CHEESE_PER_PIZZA = 0.12; // 120g par pizza
 
-document.addEventListener('DOMContentLoaded', async () => {
-  setupDownloadHandlers();
+// 1. Basculement d'éditions (Gourmet / Retail)
+function switchEdition(edition) {
+  const btnGourmet = document.getElementById('btn-tab-gourmet');
+  const btnRetail = document.getElementById('btn-tab-retail');
+  const cardGourmet = document.getElementById('card-gourmet-view');
+  const cardRetail = document.getElementById('card-retail-view');
 
-  try {
-    const res = await fetch(API_URL);
-    if (!res.ok) {
-      console.warn('[Website] GitHub API returned status:', res.status);
-      return;
-    }
-
-    const data = await res.json();
-    if (!data || !data.tag_name) return;
-
-    const version = data.tag_name;
-    const cleanVersion = version.startsWith('v') ? version.substring(1) : version;
-    const pubDate = data.published_at 
-      ? new Date(data.published_at).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' })
-      : '09 Octobre 2026';
-
-    // Update UI elements
-    const heroVersionEl = document.getElementById('hero-version-tag');
-    if (heroVersionEl) heroVersionEl.textContent = `v${cleanVersion}`;
-
-    const cardVersionEl = document.getElementById('card-version');
-    if (cardVersionEl) cardVersionEl.textContent = cleanVersion;
-
-    const cardDateEl = document.getElementById('card-date');
-    if (cardDateEl) cardDateEl.textContent = pubDate;
-
-    // Find Windows NSIS Setup .exe asset
-    const exeAsset = data.assets?.find(a => a.name.endsWith('.exe') && !a.name.includes('.sig'));
-    const downloadBtn = document.getElementById('primary-download-btn');
-    const headerBtn = document.getElementById('header-download-btn');
-    const btnLabel = document.getElementById('btn-label');
-
-    if (exeAsset) {
-      directDownloadUrl = exeAsset.browser_download_url;
-      if (downloadBtn) downloadBtn.href = directDownloadUrl;
-      if (headerBtn) headerBtn.href = directDownloadUrl;
-      if (btnLabel) {
-        const sizeMb = (exeAsset.size / (1024 * 1024)).toFixed(1);
-        btnLabel.textContent = `Télécharger l'Installeur Windows (${sizeMb} Mo)`;
-      }
-    }
-
-    // Render release body notes if present
-    if (data.body) {
-      const releasesContainer = document.getElementById('releases-list');
-      if (releasesContainer) {
-        const article = document.createElement('article');
-        article.className = 'release-item';
-        article.innerHTML = `
-          <div class="release-item-header">
-            <div class="release-title-row">
-              <span class="badge-version">${version}</span>
-              <span class="badge-stable">Dernier Release GitHub</span>
-              <h3 class="release-name">${escapeHtml(data.name || `Aquadro POS ${version}`)}</h3>
-            </div>
-            <time class="release-date">${pubDate}</time>
-          </div>
-          <div class="release-content">
-            <div style="white-space: pre-line; font-family: monospace; font-size: 0.85rem; color: #334155;">
-              ${escapeHtml(data.body)}
-            </div>
-          </div>
-        `;
-        releasesContainer.prepend(article);
-      }
-    }
-  } catch (err) {
-    console.warn('[Website] Could not fetch live GitHub releases:', err);
-  }
-});
-
-function setupDownloadHandlers() {
-  const primaryBtn = document.getElementById('primary-download-btn');
-  const headerBtn = document.getElementById('header-download-btn');
-  const zipBtn = document.getElementById('zip-download-btn');
-  const copyBtn = document.getElementById('copy-cmd-btn');
-  const cmdText = document.getElementById('powershell-cmd-text');
-
-  const handleDownloadClick = (e) => {
-    e.preventDefault();
-    triggerDirectDownload(directDownloadUrl);
-  };
-
-  if (primaryBtn) primaryBtn.addEventListener('click', handleDownloadClick);
-  if (headerBtn) headerBtn.addEventListener('click', handleDownloadClick);
-
-  if (zipBtn) {
-    zipBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const zipUrl = zipBtn.getAttribute('href') || `https://github.com/${GITHUB_REPO}/releases/latest/download/AquadroPOS_1.0.0_x64-setup.nsis.zip`;
-      triggerDirectDownload(zipUrl);
-    });
-  }
-
-  if (copyBtn && cmdText) {
-    copyBtn.addEventListener('click', async () => {
-      try {
-        const textToCopy = cmdText.textContent.trim();
-        await navigator.clipboard.writeText(textToCopy);
-        const copyBtnText = document.getElementById('copy-btn-text');
-        if (copyBtnText) copyBtnText.textContent = 'تم النسخ بنجاح ✓';
-        copyBtn.style.background = '#10B981';
-        setTimeout(() => {
-          if (copyBtnText) copyBtnText.textContent = 'نسخ الأمر';
-          copyBtn.style.background = '#2563EB';
-        }, 2500);
-      } catch (err) {
-        console.warn('Clipboard write failed:', err);
-      }
-    });
+  if (edition === 'gourmet') {
+    btnGourmet.classList.add('active');
+    btnRetail.classList.remove('active');
+    cardGourmet.style.opacity = '1';
+    cardGourmet.style.transform = 'scale(1.02)';
+    cardGourmet.style.borderColor = 'rgba(249, 115, 22, 0.6)';
+    cardRetail.style.opacity = '0.75';
+    cardRetail.style.transform = 'scale(1)';
+    cardRetail.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+  } else {
+    btnRetail.classList.add('active');
+    btnGourmet.classList.remove('active');
+    cardRetail.style.opacity = '1';
+    cardRetail.style.transform = 'scale(1.02)';
+    cardRetail.style.borderColor = 'rgba(59, 130, 246, 0.6)';
+    cardGourmet.style.opacity = '0.75';
+    cardGourmet.style.transform = 'scale(1)';
+    cardGourmet.style.borderColor = 'rgba(255, 255, 255, 0.08)';
   }
 }
 
-function triggerDirectDownload(url) {
-  showToastDownload();
+// 2. Démo Interactive dans le Hero Mockup
+function simulateRestock(deltaKg) {
+  demoMozzarellaStock = Math.max(0, demoMozzarellaStock + deltaKg);
+  updateDemoMockup();
+}
+
+function resetDemoStock() {
+  demoMozzarellaStock = 5.76;
+  updateDemoMockup();
+}
+
+function updateDemoMockup() {
+  const counterEl = document.getElementById('demo-counter');
+  const alertTextEl = document.getElementById('demo-limiting-text');
+  const alertBoxEl = document.getElementById('demo-limiting-alert');
+
+  const possiblePizzas = Math.floor(demoMozzarellaStock / MARGHERITA_CHEESE_PER_PIZZA);
   
-  // Create hidden iframe to trigger binary download without navigating away
-  const iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  iframe.src = url;
-  document.body.appendChild(iframe);
-  setTimeout(() => {
-    if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-  }, 30000);
-}
-
-function showToastDownload() {
-  let toast = document.getElementById('download-toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'download-toast';
-    toast.className = 'download-toast';
-    document.body.appendChild(toast);
+  if (counterEl) {
+    // Animation de compteur
+    counterEl.textContent = possiblePizzas;
+    counterEl.style.transform = 'scale(1.15)';
+    setTimeout(() => {
+      counterEl.style.transform = 'scale(1)';
+    }, 180);
   }
 
-  toast.innerHTML = `
-    <div class="download-toast-content">
-      <div class="download-toast-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-      </div>
-      <div>
-        <p class="download-toast-title">Le téléchargement a démarré ! / بدأ التحميل المباشر</p>
-        <p class="download-toast-subtitle">L'installeur Windows Aquadro POS (.exe) est en cours de téléchargement.</p>
-      </div>
-    </div>
-  `;
-
-  toast.classList.add('show');
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 6000);
+  if (alertTextEl && alertBoxEl) {
+    if (possiblePizzas === 0) {
+      alertTextEl.textContent = `RUPTURE DE STOCK : 0 kg de Mozzarella restante — Service bloqué !`;
+      alertBoxEl.style.background = 'rgba(239, 68, 68, 0.25)';
+      alertBoxEl.style.borderColor = '#EF4444';
+    } else {
+      alertTextEl.textContent = `Fromage Mozzarella (Reste ${demoMozzarellaStock.toFixed(2)} kg — permet ${possiblePizzas} pizzas)`;
+      alertBoxEl.style.background = 'rgba(249, 115, 22, 0.15)';
+      alertBoxEl.style.borderColor = 'rgba(249, 115, 22, 0.35)';
+    }
+  }
 }
 
-function escapeHtml(str) {
-  if (!str) return '';
-  return str.replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#039;');
+// 3. Simulateur Live de Rendement (Section Interactive)
+function updateLiveSimulator() {
+  const flourInput = document.getElementById('slider-flour');
+  const cheeseInput = document.getElementById('slider-cheese');
+  const sauceInput = document.getElementById('slider-sauce');
+
+  if (!flourInput || !cheeseInput || !sauceInput) return;
+
+  const flourKg = parseFloat(flourInput.value);
+  const cheeseKg = parseFloat(cheeseInput.value);
+  const sauceKg = parseFloat(sauceInput.value);
+
+  // Mettre à jour les labels
+  document.getElementById('val-flour').textContent = `${flourKg} kg`;
+  document.getElementById('val-cheese').textContent = `${cheeseKg.toFixed(1)} kg`;
+  document.getElementById('val-sauce').textContent = `${sauceKg.toFixed(1)} kg`;
+
+  // Portions requises par pizza :
+  // Farine : 0.25 kg
+  // Fromage : 0.12 kg
+  // Sauce : 0.08 kg
+  const pFlour = Math.floor(flourKg / 0.25);
+  const pCheese = Math.floor(cheeseKg / 0.12);
+  const pSauce = Math.floor(sauceKg / 0.08);
+
+  const maxPortions = Math.min(pFlour, pCheese, pSauce);
+
+  // Déterminer l'ingrédient limitant
+  let limitingName = 'Farine Spéciale Pizza';
+  let limitingPortions = pFlour;
+  if (pCheese < limitingPortions) {
+    limitingName = 'Fromage Mozzarella';
+    limitingPortions = pCheese;
+  }
+  if (pSauce < limitingPortions) {
+    limitingName = 'Sauce Tomate Italienne';
+    limitingPortions = pSauce;
+  }
+
+  // Mettre à jour le DOM
+  document.getElementById('sim-result-portions').textContent = maxPortions;
+  document.getElementById('sim-result-limiting').textContent = `${limitingName} (limite à ${limitingPortions} portions)`;
+
+  // Food cost = (0.25 * 80) + (0.12 * 1100) + (0.08 * 180) = 20 + 132 + 14.4 = 166.4 DA
+  const cost = 166.4;
+  const sellingPrice = 650;
+  const margin = sellingPrice - cost;
+  const marginPct = Math.round((margin / sellingPrice) * 100);
+
+  document.getElementById('sim-kpi-cost').textContent = `${cost.toFixed(0)} DA`;
+  document.getElementById('sim-kpi-margin').textContent = `${margin.toFixed(0)} DA (${marginPct}%)`;
 }
+
+// 4. Copier la commande PowerShell
+function copyPowerShellCommand() {
+  const code = document.getElementById('ps-cmd')?.textContent || '';
+  navigator.clipboard.writeText(code).then(() => {
+    const btnText = document.getElementById('copy-btn-text');
+    if (btnText) {
+      const original = btnText.textContent;
+      btnText.textContent = '✓ Copié !';
+      btnText.style.color = '#34D399';
+      setTimeout(() => {
+        btnText.textContent = original;
+        btnText.style.color = '';
+      }, 2000);
+    }
+  });
+}
+
+// Initialisation au chargement
+document.addEventListener('DOMContentLoaded', () => {
+  switchEdition('gourmet');
+  updateLiveSimulator();
+  updateDemoMockup();
+});

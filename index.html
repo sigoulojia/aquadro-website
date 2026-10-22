@@ -3,675 +3,638 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aquadro POS — Logiciel de Caisse & Gestion Commerciale Desktop (Algérie)</title>
-  <meta name="description" content="Aquadro POS est le système de caisse et ERP desktop nouvelle génération pour commerces en Algérie. 100% autonome hors-ligne, SQLite WAL, lecteur code-barres USB instantané.">
+  <title>Aquadro POS — Caisse Desktop & ERP Nouvelle Génération (Algérie)</title>
+  <meta name="description" content="Aquadro POS est le système de caisse et ERP desktop ultra-rapide pour commerces, pizzerias et restaurants en Algérie. 100% autonome hors-ligne, SQLite WAL, calcul de rendement et fiches techniques.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header / Navigation -->
+
+  <!-- =========================================================================
+       Navigation Supérieure Glassmorphic
+       ========================================================================= -->
   <header class="site-header">
     <div class="container header-container">
-      <div class="brand">
+      <a href="#" class="brand">
         <div class="brand-logo">
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="8" fill="#1E3A8A"/>
-            <path d="M16 6L25 24H7L16 6Z" fill="#3B82F6"/>
-            <circle cx="16" cy="18" r="4" fill="#93C5FD"/>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4L28 26H4L16 4Z" fill="#60A5FA"/>
+            <circle cx="16" cy="19" r="4.5" fill="#FFFFFF"/>
           </svg>
         </div>
         <div class="brand-text">
           <span class="brand-name">Aquadro POS</span>
-          <span class="brand-badge">Desktop Edition</span>
+          <span class="brand-badge">Desktop ERP • Algérie</span>
         </div>
-      </div>
+      </a>
+
       <nav class="nav-links">
+        <a href="#editions">Éditions</a>
+        <a href="#simulator">Simulateur</a>
         <a href="#features">Fonctionnalités</a>
-        <a href="#gourmet" style="color: #E87524; font-weight: 800;">Aquadro Gourmet 🍕 <span class="badge-gourmet" style="font-size: 0.65rem; padding: 2px 6px;">Nouveau</span></a>
-        <a href="#download">Téléchargement</a>
-        <a href="#releases">Notes de Version</a>
-        <a href="#specs">Configuration</a>
-        <a href="#support">Support</a>
+        <a href="#hardware">Matériel</a>
+        <a href="#releases">Releases</a>
       </nav>
-      <div class="header-action">
-        <a id="header-download-btn" href="https://github.com/sigoulojia/aquadro-pos/releases/latest/download/AquadroPOS_1.0.0_x64-setup.exe" class="btn btn-sm btn-primary" download>Télécharger v1.0.0</a>
+
+      <div class="header-actions">
+        <a href="#download" class="btn btn-sm btn-gourmet">
+          <span>Télécharger v1.0.1</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- =========================================================================
+       Hero Section & Sélecteur d'Éditions
+       ========================================================================= -->
   <section class="hero-section" id="download">
-    <div class="container hero-container">
-      <div class="hero-badge">
-        <span class="status-indicator"></span>
-        <span>Version <strong id="hero-version-tag">v1.0.0</strong> — Production Core Complete</span>
+    <div class="container">
+      
+      <div class="hero-badge-wrap">
+        <span class="pulse-dot"></span>
+        <span>Version <strong>1.0.1 Stable</strong> — Moteur SQLite WAL 100% Hors-Ligne</span>
+        <span class="badge badge-emerald">DGI Algérie OK</span>
       </div>
-      
+
       <h1 class="hero-title">
-        La Caisse Desktop Rapide, Autonome & Conçue pour le Commerce Réel.
+        La Caisse Desktop Rapide.<br>
+        <span class="gradient-text-gourmet">Conçue pour la Restauration & le Commerce Réel.</span>
       </h1>
-      
+
       <p class="hero-subtitle">
-        Conçu pour les magasins et commerces de détail en Algérie : moteur SQLite WAL natif sans dépendance au cloud, prise en charge immédiate du lecteur code-barres USB, gestion des stocks FEFO et conformité fiscale DGI.
+        Deux éditions natives spécialisées pour l'Algérie : gérez vos <strong>ingrédients et portions au gramme près</strong> avec calcul automatique de vos pizzas réalisables, ou encaissez à haute cadence avec <strong>lecteur code-barres permanent</strong>.
       </p>
 
-      <div class="download-card">
-        <div class="download-card-body">
-          <div class="os-icon">
-            <svg width="40" height="40" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 12.402L35.688 7.531V41.748H0V12.402ZM35.688 46.104V80.354L0 75.483V46.104H35.688ZM40.088 6.932L87.491 0V41.748H40.088V6.932ZM87.491 88L40.088 81.068V46.104H87.491V88Z" fill="#00ADEF"/>
-            </svg>
-          </div>
-          <div class="download-info">
-            <h3 class="download-heading">Aquadro POS pour Windows (64-bit)</h3>
-            <p class="download-meta">
-              Installeur officiel NSIS &bull; Compatible Windows 10 & 11 (x64) &bull; Signé cryptographiquement (Minisign)
-            </p>
-            <div class="release-quick-meta">
-              <span>Version : <strong id="card-version">1.0.0</strong></span>
-              <span>Publié le : <strong id="card-date">09 Octobre 2026</strong></span>
-              <span>Architecture : <strong>x86_64</strong></span>
-            </div>
-          </div>
-        </div>
+      <!-- Sélecteur d'Éditions (Boutons Onglets) -->
+      <div class="edition-switch-container" id="editions">
+        <button class="edition-tab-btn active tab-gourmet" id="btn-tab-gourmet" onclick="switchEdition('gourmet')">
+          <span>🍕 Édition Gourmet (Pizzerias & Restaurants)</span>
+        </button>
+        <button class="edition-tab-btn tab-retail" id="btn-tab-retail" onclick="switchEdition('retail')">
+          <span>🏪 Édition Retail (Supérettes & Magasins)</span>
+        </button>
+      </div>
 
-        <div class="download-actions">
-          <a id="primary-download-btn" href="https://github.com/sigoulojia/aquadro-releases/releases/latest/download/AquadroPOS_1.0.0_x64-setup.exe" class="btn btn-lg btn-success" download>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span id="btn-label">Télécharger l'Installeur Windows (.exe)</span>
-          </a>
-
-          <a id="zip-download-btn" href="https://github.com/sigoulojia/aquadro-releases/releases/latest/download/AquadroPOS_1.0.0_x64-setup.nsis.zip" class="btn btn-lg btn-secondary" download>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="21 8 21 21 3 21 3 8"/>
-              <rect x="1" y="3" width="22" height="5"/>
-              <line x1="10" y1="12" x2="14" y2="12"/>
-            </svg>
-            <span>Télécharger en Archive (.zip)</span>
-          </a>
-        </div>
-
-        <div class="download-alt-row">
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Alternative sans alerte :</span>
-          <a href="#powershell-install" class="link-alt-download">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="4 17 10 11 4 5"/>
-              <line x1="12" y1="19" x2="20" y2="19"/>
-            </svg>
-            <span>تثبيت فوري مباشر بأمر واحد (PowerShell)</span>
-          </a>
-          <a href="#releases" class="link-alt-download">
-            <span>Release Notes v1.0.0</span>
-          </a>
-        </div>
-
-        <!-- One-Click PowerShell Safe Install Box -->
-        <div class="powershell-card" id="powershell-install">
-          <div class="powershell-header">
-            <div class="powershell-title">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2">
-                <polyline points="4 17 10 11 4 5"/>
-                <line x1="12" y1="19" x2="20" y2="19"/>
+      <!-- Grille des Cartes de Téléchargement -->
+      <div class="hero-cards-grid">
+        
+        <!-- CARTE 1 : ÉDITION GOURMET (PIZZERIA & RESTAURATION) -->
+        <div class="edition-card card-gourmet" id="card-gourmet-view">
+          <div class="card-top">
+            <div class="card-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 11h.01M11 15h.01M16 16h.01M2 16l20 6-6-20A20 20 0 0 0 2 16Z"/>
               </svg>
-              <span>تثبيت فوري مباشر بدون تحذيرات الأمان (Windows PowerShell)</span>
             </div>
-            <span class="powershell-badge">Zero SmartScreen Warning</span>
+            <span class="badge badge-gourmet">🍕 Édition Gourmet v1.0.1</span>
           </div>
 
-          <div class="powershell-cmd-box">
-            <code class="powershell-code" id="powershell-cmd-text">irm https://raw.githubusercontent.com/sigoulojia/aquadro-website/main/install.ps1 | iex</code>
-            <button class="btn-copy-cmd" id="copy-cmd-btn" type="button" title="نسخ الأمر">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          <h2 class="card-title">Aquadro POS Gourmet</h2>
+          <div class="card-arabic-sub">خاص بالمطاعم، البيتزيريا ومحلات الفاست فود</div>
+          
+          <p class="card-desc">
+            Gestion des matières premières (farine, mozzarella, sauce...), fiches techniques par pizza, calcul automatique de la capacité de production et détection du facteur limitant.
+          </p>
+
+          <ul class="feature-check-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Calculateur de Rendement :</strong> Nombre exact de pizzas réalisables en temps réel</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Facteur Limitant :</strong> Alerte immédiate sur l'ingrédient bloquant en cuisine</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Food Cost & Marge :</strong> Coût matière unitaire et rentabilité en DZD et %</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Réapprovisionnement Rapide :</strong> Boutons +1kg, +5kg, +10kg en 1 clic</span>
+            </li>
+          </ul>
+
+          <div class="card-actions">
+            <a href="https://github.com/sigoulojia/aquadro-pos-gourmet/releases/tag/v1.0.1" class="btn btn-lg btn-gourmet">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Télécharger Aquadro Gourmet (.exe)</span>
+            </a>
+            <a href="https://github.com/sigoulojia/aquadro-pos-gourmet" target="_blank" class="btn btn-sm btn-glass">
+              <span>Voir le Code Source sur GitHub</span>
+            </a>
+          </div>
+
+          <div class="card-meta-row">
+            <span>Windows 10 / 11 (x64)</span>
+            <span>Taille : ~4.5 Mo</span>
+            <span>SQLite WAL</span>
+          </div>
+        </div>
+
+        <!-- CARTE 2 : ÉDITION RETAIL (COMMERCE & SUPERMARCHÉ) -->
+        <div class="edition-card card-retail" id="card-retail-view">
+          <div class="card-top">
+            <div class="card-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
               </svg>
-              <span id="copy-btn-text">نسخ الأمر</span>
-            </button>
+            </div>
+            <span class="badge badge-retail">🏪 Édition Retail v1.0.1</span>
           </div>
-          <p class="powershell-desc">
-            افتح موجه أوامر Windows PowerShell ثم الصق هذا الأمر واضغط Enter. سيتم تنزيل البرنامج وفك حظر الأمان وتشغيل المثبت مباشرة بنقرة واحدة!
+
+          <h2 class="card-title">Aquadro POS Retail</h2>
+          <div class="card-arabic-sub">خاص بالمحلات التجارية، السوبرماركت ومحلات التجزئة</div>
+          
+          <p class="card-desc">
+            Vitesse de passage en caisse maximale avec scanner USB permanent, traçabilité des lots FEFO, dates de péremption, gestion des crédits clients et clôture financière Z.
           </p>
+
+          <ul class="feature-check-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Scanner Code-barres Permanent :</strong> Capture USB HID instantanée sans bouton</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Traçabilité FEFO :</strong> Alertes péremptions et allocation automatique des lots</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Documents Commerciaux :</strong> Factures proforma, avoirs et bons de livraison DGI</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>100% Autonome :</strong> Fonctionne sans aucune connexion internet requise</span>
+            </li>
+          </ul>
+
+          <div class="card-actions">
+            <a href="https://github.com/sigoulojia/aquadro-pos/releases/tag/v1.0.1" class="btn btn-lg btn-retail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Télécharger Aquadro Retail (.exe)</span>
+            </a>
+            <a href="https://github.com/sigoulojia/aquadro-pos" target="_blank" class="btn btn-sm btn-glass">
+              <span>Voir le Code Source sur GitHub</span>
+            </a>
+          </div>
+
+          <div class="card-meta-row">
+            <span>Windows 10 / 11 (x64)</span>
+            <span>Taille : ~4.5 Mo</span>
+            <span>SQLite WAL</span>
+          </div>
         </div>
 
-        <!-- SmartScreen Guide Card -->
-        <div class="smartscreen-guide">
-          <div class="smartscreen-header">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-            <span>هل ظهرت لك نافذة حماية الويندوز الزرقاء (Windows Defender SmartScreen)؟</span>
-          </div>
-          <p style="font-size: 0.78rem; color: #475569; margin-bottom: 6px;">
-            تظهر هذه الشاشة لمرة واحدة فقط للبرامج الجديدة التي تم إطلاقها حديثاً ولم تحصل بعد على شهادة EV تجارية. لتخطيها في ثانيتين:
-          </p>
-          <div class="smartscreen-steps">
-            <div class="smartscreen-step-box">
-              <div class="smartscreen-step-num">الخطوة 1</div>
-              <div class="smartscreen-step-text">اضغط على رابط <strong>"المزيد من المعلومات" (More info)</strong> الظاهر تحت النص.</div>
-            </div>
-            <div class="smartscreen-step-box">
-              <div class="smartscreen-step-num">الخطوة 2</div>
-              <div class="smartscreen-step-text">اضغط على زر <strong>"تشغيل على أي حال" (Run anyway)</strong> للبدء الفوري.</div>
-            </div>
-          </div>
-        </div>
+      </div>
 
-        <div class="integrity-banner">
-          <div class="integrity-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            <span>Tauri Updater activé avec vérification automatique des signatures Ed25519</span>
+      <!-- =========================================================================
+           Mockup d'Application Interactif (Showcase Live)
+           ========================================================================= -->
+      <div class="mockup-wrapper">
+        <div class="mockup-window">
+          <!-- Barre de Fenêtre Desktop -->
+          <div class="mockup-header">
+            <div class="window-dots">
+              <span class="window-dot dot-red"></span>
+              <span class="window-dot dot-yellow"></span>
+              <span class="window-dot dot-green"></span>
+            </div>
+            <div class="window-titlebar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span>Aquadro POS Gourmet — Caisse & Gestion Restauration (Production Engine)</span>
+            </div>
+            <div class="window-status-pill">
+              <span class="pulse-dot"></span>
+              <span>SQLITE WAL CONNECTÉ</span>
+            </div>
           </div>
-          <div class="integrity-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            <span>Mises à jour sans perte de données (%APPDATA% préservé)</span>
+
+          <!-- Corps de la Fenêtre avec Démo Interactive -->
+          <div class="mockup-body">
+            
+            <!-- Panier Démo -->
+            <div class="mockup-sidebar">
+              <div class="mockup-cart-title">Commande en Cours (Table #04)</div>
+              
+              <div class="mockup-cart-item">
+                <div>
+                  <div style="font-weight: 700; color: #FFF;">2x Pizza Margherita</div>
+                  <div style="font-size: 0.72rem; color: #94A3B8;">Format Familial (Feu de bois)</div>
+                </div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #FB923C;">1 300 DA</div>
+              </div>
+
+              <div class="mockup-cart-item">
+                <div>
+                  <div style="font-weight: 700; color: #FFF;">1x Pizza 4 Saisons</div>
+                  <div style="font-size: 0.72rem; color: #94A3B8;">Champignons, Thon, Olives</div>
+                </div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #FB923C;">850 DA</div>
+              </div>
+
+              <div class="mockup-cart-item">
+                <div>
+                  <div style="font-weight: 700; color: #FFF;">3x Cannette Boisson 33cl</div>
+                  <div style="font-size: 0.72rem; color: #94A3B8;">Fraîche (Frigo 1)</div>
+                </div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-weight: 800; color: #FB923C;">360 DA</div>
+              </div>
+
+              <div class="mockup-cart-total-box">
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #94A3B8; margin-bottom: 4px;">
+                  <span>Total TTC :</span>
+                  <span style="font-family: 'JetBrains Mono', monospace; font-weight: 900; color: #FFF; font-size: 1.1rem;">2 510 DA</span>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 10px;">
+                  <button class="btn btn-sm btn-gourmet" style="flex: 1; padding: 6px;">Valider [Entrée]</button>
+                  <button class="btn btn-sm btn-glass" style="padding: 6px 12px;">Imprimer</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Espace Central : Carte de Capacité Interactive -->
+            <div class="mockup-main-area">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <span class="badge badge-gourmet" style="margin-bottom: 6px;">Démo Interactive en Direct</span>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #FFF;">Module de Capacité de Production</h3>
+                  <p style="font-size: 0.82rem; color: #94A3B8;">Voyez comment le stock réel d'ingrédients pilote votre capacité de vente en temps réel.</p>
+                </div>
+              </div>
+
+              <!-- Boîte de Rendement Interactive -->
+              <div class="interactive-capacity-box">
+                <div class="capacity-counter-row">
+                  <div>
+                    <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: #94A3B8; letter-spacing: 0.05em;">
+                      Pizzas Margherita Réalisables
+                    </div>
+                    <div class="capacity-number-large" id="demo-counter">48</div>
+                    <div style="font-size: 0.82rem; color: #34D399; font-weight: 700; margin-top: 2px;">
+                      ✓ Prêt pour le service du soir
+                    </div>
+                  </div>
+
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.75rem; color: #94A3B8; font-weight: 700;">Prix de vente :</div>
+                    <div style="font-size: 1.3rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: #FFF;">650 DA</div>
+                    <div style="font-size: 0.75rem; color: #34D399; font-weight: 700; margin-top: 4px;">
+                      Marge : 465 DA (71.5%)
+                    </div>
+                  </div>
+                </div>
+
+                <div class="limiting-badge-interactive" id="demo-limiting-alert">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  <div>
+                    <strong style="color: #FFF;">Facteur Limitant Détecté :</strong> 
+                    <span id="demo-limiting-text">Fromage Mozzarella (Reste 5.76 kg — consomme 120g par pizza)</span>
+                  </div>
+                </div>
+
+                <!-- Boutons de Test Interactifs -->
+                <div class="interactive-restock-controls">
+                  <span style="font-size: 0.76rem; color: #94A3B8; font-weight: 700;">Simuler un Réapprovisionnement :</span>
+                  <button class="btn-interactive-pill" onclick="simulateRestock(5)">+5 kg Mozzarella</button>
+                  <button class="btn-interactive-pill" onclick="simulateRestock(10)">+10 kg Mozzarella</button>
+                  <button class="btn-interactive-pill" onclick="simulateRestock(-3)">-3 kg Mozzarella</button>
+                  <button class="btn-interactive-pill" onclick="resetDemoStock()" style="margin-left: auto; background: rgba(255, 255, 255, 0.05); color: #FFF; border-color: rgba(255,255,255,0.15);">Réinitialiser</button>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Aquadro POS Gourmet Card -->
-      <div class="download-card gourmet">
-        <div class="download-card-body">
-          <div class="os-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E87524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 11h.01M11 15h.01M16 16h.01M2 16l20 6-6-20A20 20 0 0 0 2 16Z"/>
-            </svg>
-          </div>
-          <div class="download-info">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-              <span class="badge-gourmet">🍕 Édition Restauration & Pizzeria</span>
-              <span style="font-size: 0.75rem; color: #78716C; font-family: 'JetBrains Mono', monospace;">v1.0.1 Stable</span>
-            </div>
-            <h3 class="download-heading">Aquadro POS Gourmet pour Windows (64-bit)</h3>
-            <p class="download-meta">
-              Installeur officiel NSIS &bull; Gestion des مقادير & Ingrédients &bull; Calculateur de Rendement &bull; 100% Autonome
-            </p>
-            <div class="release-quick-meta">
-              <span>Version : <strong>1.0.1</strong></span>
-              <span>Publié le : <strong>22 Octobre 2026</strong></span>
-              <span>Architecture : <strong>x86_64</strong></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="download-actions">
-          <a id="gourmet-download-btn" href="https://github.com/sigoulojia/aquadro-pos-gourmet/releases/tag/v1.0.1" class="btn btn-lg btn-gourmet">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span>Télécharger Aquadro POS Gourmet (.exe)</span>
-          </a>
-
-          <a href="https://github.com/sigoulojia/aquadro-pos-gourmet" target="_blank" class="btn btn-lg btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            <span>Code Source & GitHub</span>
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
-
-  <!-- Section Spéciale Aquadro POS Gourmet -->
-  <section class="gourmet-section" id="gourmet">
+  <!-- =========================================================================
+       Simulateur de Rendement Live (Widget Démo Web)
+       ========================================================================= -->
+  <section class="simulator-section" id="simulator">
     <div class="container">
-      <div class="gourmet-header">
-        <span class="badge-gourmet">🍕 Édition Dédiée aux Métiers de Bouche & Pizzerias</span>
-        <h2>Aquadro POS Gourmet — La Caisse Conçue pour la Restauration</h2>
-        <p>
-          Une solution sur mesure pour les pizzerias, fast-foods et restaurants en Algérie : transformez votre gestion de cuisine avec le calcul instantané du nombre de portions réalisables et la maîtrise totale de votre coût matière.
+      <div class="section-head">
+        <span class="section-tag gradient-text-gourmet">Expérience Interactive</span>
+        <h2 class="section-title">Testez le Calculateur de Rendement en Direct</h2>
+        <p class="section-desc">
+          Déplacez les curseurs de stock ci-dessous pour voir comment Aquadro POS Gourmet calcule instantanément le nombre de pizzas réalisables et repère l'ingrédient bloquant.
         </p>
       </div>
 
-      <div class="gourmet-grid">
-        <div class="gourmet-card">
-          <div class="gourmet-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-          </div>
-          <h3>Capacité de Production en Temps Réel</h3>
-          <span class="arabic-title">حساب كمية الأطباق الممكن تحضيرها فورياً</span>
-          <p>
-            Sachez exactement combien de pizzas vous pouvez préparer à la seconde près grâce au calcul automatique de rendement basé sur vos stocks actuels en cuisine.
-          </p>
-        </div>
-
-        <div class="gourmet-card">
-          <div class="gourmet-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
-              <line x1="12" y1="9" x2="12" y2="13"/>
-              <line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
-          </div>
-          <h3>Détection du Facteur Limitant</h3>
-          <span class="arabic-title">تحديد العنصر المحدد والمكونات النافذة</span>
-          <p>
-            Alerte immédiate sur l'ingrédient bloquant (farine, mozzarella, sauce...) pour éviter les ruptures en plein service et anticiper vos achats fournisseurs.
-          </p>
-        </div>
-
-        <div class="gourmet-card">
-          <div class="gourmet-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-          <h3>Fiches Techniques & Ingrédients</h3>
-          <span class="arabic-title">المقادير الدقيقة للطبق والخصم التلقائي</span>
-          <p>
-            Définissez les مقادير au gramme et millilitre près pour chaque pizza. Déduction automatique et traçabilité des stocks lors de la validation des commandes.
-          </p>
-        </div>
-
-        <div class="gourmet-card">
-          <div class="gourmet-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
-              <path d="M12 18V6"/>
-            </svg>
-          </div>
-          <h3>Food Cost & Marges Réelles</h3>
-          <span class="arabic-title">حساب تكلفة الوجبة وهامش الربح بدقة</span>
-          <p>
-            Suivi automatique du coût de revient matière et de la marge brute par portion en Dinar Algérien (DZD) et en pourcentage pour rentabiliser votre carte.
-          </p>
-        </div>
-      </div>
-
-      <div class="gourmet-cta-banner">
+      <div class="simulator-card">
+        <!-- Contrôles Curseur -->
         <div>
-          <h3>Prêt à booster la gestion de votre Pizzeria ?</h3>
-          <p>Téléchargez Aquadro POS Gourmet dès aujourd'hui. Aucune connexion internet requise, installation en 1 clic.</p>
+          <h3 style="font-size: 1.1rem; font-weight: 800; color: #FFF; margin-bottom: 20px;">
+            Stocks de Matières Premières en Cuisine
+          </h3>
+
+          <div class="sim-slider-group">
+            <div class="sim-slider-label">
+              <span>Farine Spéciale Pizza (T55) :</span>
+              <span id="val-flour">25 kg</span>
+            </div>
+            <input type="range" class="sim-range" id="slider-flour" min="5" max="100" value="25" oninput="updateLiveSimulator()">
+            <div style="font-size: 0.72rem; color: #64748B; margin-top: 4px;">Portion requise : 250g par pizza</div>
+          </div>
+
+          <div class="sim-slider-group">
+            <div class="sim-slider-label">
+              <span>Fromage Mozzarella Fior di Latte :</span>
+              <span id="val-cheese">6.0 kg</span>
+            </div>
+            <input type="range" class="sim-range" id="slider-cheese" min="1" max="30" step="0.5" value="6" oninput="updateLiveSimulator()">
+            <div style="font-size: 0.72rem; color: #64748B; margin-top: 4px;">Portion requise : 120g par pizza</div>
+          </div>
+
+          <div class="sim-slider-group">
+            <div class="sim-slider-label">
+              <span>Sauce Tomate Pelée Italienne :</span>
+              <span id="val-sauce">10.0 kg</span>
+            </div>
+            <input type="range" class="sim-range" id="slider-sauce" min="2" max="40" step="0.5" value="10" oninput="updateLiveSimulator()">
+            <div style="font-size: 0.72rem; color: #64748B; margin-top: 4px;">Portion requise : 80g par pizza</div>
+          </div>
         </div>
-        <a href="https://github.com/sigoulojia/aquadro-pos-gourmet/releases/tag/v1.0.1" class="btn btn-lg btn-gourmet">
-          Télécharger Aquadro Gourmet v1.0.1
-        </a>
+
+        <!-- Résultat Calculé Live -->
+        <div class="sim-result-box">
+          <div>
+            <span class="badge badge-gourmet" style="margin-bottom: 12px;">Rendement Calculé en Temps Réel</span>
+            <div style="font-size: 0.8rem; color: #94A3B8; font-weight: 700; text-transform: uppercase;">
+              Capacité Immédiate
+            </div>
+            <div style="font-size: 3.8rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: #FB923C; line-height: 1;" id="sim-result-portions">
+              50
+            </div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF; margin-top: 6px;">
+              Pizzas Margherita Réalisables
+            </div>
+
+            <div style="margin-top: 14px; padding: 10px 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-sm); font-size: 0.82rem; color: #FCA5A5;">
+              <strong>Élément Limitant (العنصر المحدد) :</strong>
+              <span id="sim-result-limiting">Fromage Mozzarella (bloqué à 50 portions)</span>
+            </div>
+          </div>
+
+          <div class="sim-kpi-grid">
+            <div class="sim-kpi-item">
+              <div class="sim-kpi-label">Food Cost / Pizza</div>
+              <div class="sim-kpi-val" id="sim-kpi-cost">185 DA</div>
+            </div>
+            <div class="sim-kpi-item">
+              <div class="sim-kpi-label">Marge Brute</div>
+              <div class="sim-kpi-val" id="sim-kpi-margin">465 DA (71%)</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Core Features -->
-  <section class="features-section" id="features">
+  <!-- =========================================================================
+       Bento Grid des Fonctionnalités Majeures
+       ========================================================================= -->
+  <section class="bento-section" id="features">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Performances & Fiabilité</span>
-        <h2 class="section-title">Une Solution Taillée pour la Réalité du Terrain</h2>
-        <p class="section-desc">Chaque composant a été conçu pour éliminer les ralentissements à la caisse et garantir la continuité des ventes.</p>
+      <div class="section-head">
+        <span class="section-tag gradient-text-pure">Architecture & Ingénierie</span>
+        <h2 class="section-title">Une Fiabilité Totale pour les Commerces Exigeants</h2>
+        <p class="section-desc">
+          Zéro dépendance aux serveurs distants, zéro abonnement mensuel, zéro perte de données.
+        </p>
       </div>
 
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon icon-blue">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-              <path d="M7 15h0M2 9h20"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Scanner Code-barres USB Permanent</h3>
-          <p class="feature-text">
-            Fonctionnement continu sans aucun bouton d'activation. Scannez vos articles consécutivement : les quantités s'incrémentent en temps réel dans le panier.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon icon-emerald">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Base SQLite WAL 100% Locale</h3>
-          <p class="feature-text">
-            Toutes les transactions, stocks et sessions de caisse sont enregistrés localement dans un fichier SQLite ultra-performant. Zéro panne en cas de coupure Internet.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon icon-purple">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <div class="bento-grid">
+        
+        <!-- Bento 1 : 100% Autonome Hors-Ligne -->
+        <div class="bento-card span-8">
+          <div class="bento-icon" style="background: rgba(59, 130, 246, 0.12); color: #60A5FA;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
           </div>
-          <h3 class="feature-title">Encaissement Atomique & Monnaie</h3>
-          <p class="feature-text">
-            Calcul précis de la monnaie rendue, enregistrement des références bancaires (TPE), prévention des encaissements en doublon (clé d'idempotence) et transactions atomiques.
+          <h3 class="bento-title">Moteur SQLite WAL 100% Local & Autonome</h3>
+          <span class="bento-arabic-sub">نظام مستقل كلياً بدون إنترنت مع سرعة استجابة فائقة</span>
+          <p class="bento-desc">
+            Ne subissez plus les coupures internet de votre quartier. Toutes vos données résident localement sur votre disque dur dans une base SQLite native avec journalisation WAL (Write-Ahead Logging). Latence de réponse inférieure à 1 milliseconde même avec 50 000 articles.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon icon-amber">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 8v13H3V8"/>
-              <path d="M1 3h22v5H1z"/>
-              <path d="M10 12h4"/>
-            </svg>
-          </div>
-          <h3 class="feature-title">Gestion des Stocks & FEFO</h3>
-          <p class="feature-text">
-            Traçabilité des dates de péremption, valorisation CMP, blocage des ventes en rupture de stock et réapprovisionnements fournisseurs automatisés.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon icon-rose">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- Bento 2 : Fiches Techniques Resto -->
+        <div class="bento-card span-4">
+          <div class="bento-icon" style="background: rgba(249, 115, 22, 0.12); color: #FB923C;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
             </svg>
           </div>
-          <h3 class="feature-title">Conformité Fiscale Algérienne (DGI)</h3>
-          <p class="feature-text">
-            Édition des tickets de caisse (58mm / 80mm), factures normalisées avec mentions légales (NIF, NIS, RC, ART), avoirs, et rapport Z d'arrêt de caisse.
+          <h3 class="bento-title">Fiches Techniques & Ingrédients</h3>
+          <span class="bento-arabic-sub">المقادير الدقيقة وخصم المخزون التلقائي</span>
+          <p class="bento-desc">
+            Définissez les dosages précis par plat. Chaque commande déduit automatiquement les matières premières de vos réserves.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon icon-cyan">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+        <!-- Bento 3 : Scanner Code-Barres Permanent -->
+        <div class="bento-card span-4">
+          <div class="bento-icon" style="background: rgba(16, 185, 129, 0.12); color: #34D399;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/>
+              <line x1="7" y1="8" x2="7" y2="16"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="17" y1="8" x2="17" y2="16"/>
             </svg>
           </div>
-          <h3 class="feature-title">Mises à Jour Automatiques Signées</h3>
-          <p class="feature-text">
-            Grâce à Tauri Updater, recevez les améliorations en toute sérénité. Chaque mise à jour est vérifiée par signature cryptographique avant son installation.
+          <h3 class="bento-title">Lecteur Code-Barres Permanent</h3>
+          <span class="bento-arabic-sub">التقاط فوري عبر الباركود بدون الحاجة للنقر</span>
+          <p class="bento-desc">
+            Algorithme de capture HID USB direct. Scannez vos articles en continu sans jamais avoir besoin de cliquer sur un champ de texte.
           </p>
         </div>
+
+        <!-- Bento 4 : Conformité Fiscale DGI & Z-Report -->
+        <div class="bento-card span-8">
+          <div class="bento-icon" style="background: rgba(139, 92, 246, 0.12); color: #A78BFA;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="bento-title">Conformité Fiscale DGI & Clôture Z Immuable</h3>
+          <span class="bento-arabic-sub">متوافق مع معايير الضرائب الجزائرية ونظام الإغلاق اليومي</span>
+          <p class="bento-desc">
+            Gestion des régimes IFU et Réel, calcul TVA 19% / 9% / 0%, tickets de caisse légaux avec NIF/NIS/RC, et clôture de session de caisse quotidienne infalsifiable avec rapport Z et calcul d'écart d'espèces.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Matériel & Périphériques Compatibles
+       ========================================================================= -->
+  <section class="hardware-section" id="hardware">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag gradient-text-retail">Plug & Play Direct</span>
+        <h2 class="section-title">Matériel & Périphériques 100% Compatibles</h2>
+        <p class="section-desc">
+          Testé et certifié avec les équipements les plus répandus sur le marché algérien.
+        </p>
       </div>
 
-      <!-- Aquadro POS Gourmet Card -->
-      <div class="download-card gourmet">
-        <div class="download-card-body">
-          <div class="os-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E87524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 11h.01M11 15h.01M16 16h.01M2 16l20 6-6-20A20 20 0 0 0 2 16Z"/>
-            </svg>
+      <div class="hardware-grid">
+        <div class="hardware-item">
+          <div class="hardware-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
           </div>
-          <div class="download-info">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-              <span class="badge-gourmet">🍕 Édition Restauration & Pizzeria</span>
-              <span style="font-size: 0.75rem; color: #78716C; font-family: 'JetBrains Mono', monospace;">v1.0.1 Stable</span>
-            </div>
-            <h3 class="download-heading">Aquadro POS Gourmet pour Windows (64-bit)</h3>
-            <p class="download-meta">
-              Installeur officiel NSIS &bull; Gestion des مقادير & Ingrédients &bull; Calculateur de Rendement &bull; 100% Autonome
-            </p>
-            <div class="release-quick-meta">
-              <span>Version : <strong>1.0.1</strong></span>
-              <span>Publié le : <strong>22 Octobre 2026</strong></span>
-              <span>Architecture : <strong>x86_64</strong></span>
-            </div>
-          </div>
+          <div class="hardware-name">Imprimantes Thermiques</div>
+          <div class="hardware-sub">ESC/POS 58mm & 80mm (USB / Réseau)</div>
         </div>
 
-        <div class="download-actions">
-          <a id="gourmet-download-btn" href="https://github.com/sigoulojia/aquadro-pos-gourmet/releases/tag/v1.0.1" class="btn btn-lg btn-gourmet">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span>Télécharger Aquadro POS Gourmet (.exe)</span>
-          </a>
+        <div class="hardware-item">
+          <div class="hardware-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+          </div>
+          <div class="hardware-name">Scanners Code-Barres</div>
+          <div class="hardware-sub">Lecteurs 1D / 2D QR Code USB</div>
+        </div>
 
-          <a href="https://github.com/sigoulojia/aquadro-pos-gourmet" target="_blank" class="btn btn-lg btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            <span>Code Source & GitHub</span>
-          </a>
+        <div class="hardware-item">
+          <div class="hardware-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="hardware-name">Tiroirs-Caisses</div>
+          <div class="hardware-sub">Ouverture automatique RJ11 12V/24V</div>
+        </div>
+
+        <div class="hardware-item">
+          <div class="hardware-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="hardware-name">Écrans Tactiles & POS</div>
+          <div class="hardware-sub">Moniteurs tactiles et machines All-in-One</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Releases & Changelog -->
+  <!-- =========================================================================
+       Terminal Box PowerShell (1-Click Safe Install)
+       ========================================================================= -->
+  <section class="container" style="padding: 70px 0;">
+    <div class="terminal-card">
+      <div class="terminal-top">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span style="font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; color: #FFF; font-weight: 700;">Installation Rapide Windows PowerShell (Sans alerte SmartScreen)</span>
+        </div>
+        <button class="copy-btn" onclick="copyPowerShellCommand()">
+          <span id="copy-btn-text">Copier la commande</span>
+        </button>
+      </div>
+
+      <div class="terminal-code-row">
+        <code id="ps-cmd">irm https://sigoulojia.github.io/aquadro-website/install.ps1 | iex</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Releases & Historique des Versions
+       ========================================================================= -->
   <section class="releases-section" id="releases">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Historique des Versions</span>
+      <div class="section-head">
+        <span class="section-tag gradient-text-pure">Transparence Technique</span>
         <h2 class="section-title">Notes de Version & Mises à Jour</h2>
-        <p class="section-desc">Transparence totale sur les évolutions techniques, correctifs et fonctionnalités ajoutées.</p>
+        <p class="section-desc">Historique des versions signées cryptographiquement prêtes pour le déploiement.</p>
       </div>
 
-      <div class="releases-container" id="releases-list">
-        <!-- Contenu dynamique chargé par script.js ou fallback ci-dessous -->
-        <!-- Aquadro POS Gourmet v1.0.1 -->
-        <article class="release-item" style="border-left: 4px solid #E87524;">
-          <div class="release-item-header">
-            <div class="release-title-row">
-              <span class="badge-version" style="background: #FFF3EB; color: #E87524; border-color: #E87524;">v1.0.1</span>
-              <span class="badge-gourmet">🍕 Édition Gourmet</span>
-              <h3 class="release-name">Aquadro POS Gourmet v1.0.1 — Pizzeria & Restauration Edition</h3>
-            </div>
-            <time class="release-date">22 Octobre 2026</time>
+      <!-- Release Gourmet -->
+      <article class="release-article" style="border-left: 4px solid #E87524;">
+        <div class="release-article-header">
+          <div class="release-title-row">
+            <span class="badge badge-gourmet">v1.0.1 Stable</span>
+            <h3>Aquadro POS Gourmet — Édition Pizzeria & Restauration</h3>
           </div>
-          <div class="release-content">
-            <h4>Fonctionnalités Clés Restauration :</h4>
-            <ul>
-              <li><strong>Calculateur de Rendement en Temps Réel :</strong> Détermine instantanément le nombre de pizzas réalisables à partir du stock actuel en cuisine.</li>
-              <li><strong>Détection du Facteur Limitant (العنصر المحدد) :</strong> Identifie immédiatement l'ingrédient bloquant pour prévenir les ruptures en plein service.</li>
-              <li><strong>Fiches Techniques & المقادير :</strong> Configuration détaillée des quantités d'ingrédients requises par portion (Farine, Fromage, Sauce...).</li>
-              <li><strong>Food Cost & Marge Brute :</strong> Calcul automatique du coût de revient matière et de la rentabilité financière en DZD et %.</li>
-              <li><strong>Réapprovisionnement Rapide :</strong> Boutons d'ajout instantané (+1kg, +5kg, +10kg) pour une réception fluide des matières premières.</li>
-            </ul>
-          </div>
-        </article>
+          <div style="font-size: 0.82rem; color: #94A3B8; font-family: 'JetBrains Mono', monospace;">22 Octobre 2026</div>
+        </div>
 
-        <article class="release-item">
-          <div class="release-item-header">
-            <div class="release-title-row">
-              <span class="badge-version">v1.0.0</span>
-              <span class="badge-stable">Stable Release</span>
-              <h3 class="release-name">Aquadro POS v1.0.0 — Production Core Complete</h3>
-            </div>
-            <time class="release-date">09 Octobre 2026</time>
+        <ul class="release-bullets">
+          <li><strong>Calculateur de Rendement en Temps Réel :</strong> Détermine instantanément le nombre exact de pizzas réalisables avec le stock disponible en cuisine.</li>
+          <li><strong>Détection du Facteur Limitant (العنصر المحدد) :</strong> Identifie immédiatement l'ingrédient bloquant (farine, mozzarella...) pour éviter les ruptures en service.</li>
+          <li><strong>Fiches Techniques & المقادير :</strong> Configuration détaillée des quantités d'ingrédients requises par portion avec suivi du Food Cost et des marges.</li>
+          <li><strong>Réapprovisionnement Rapide :</strong> Boutons d'ajout rapide (+1kg, +5kg, +10kg) pour une réception fluide des arrivages de matières premières.</li>
+        </ul>
+      </article>
+
+      <!-- Release Retail -->
+      <article class="release-article" style="border-left: 4px solid #3B82F6;">
+        <div class="release-article-header">
+          <div class="release-title-row">
+            <span class="badge badge-retail">v1.0.1 Stable</span>
+            <h3>Aquadro POS Retail — Édition Commerce & Supérette</h3>
           </div>
-          <div class="release-content">
-            <h4>Points Clés & Fonctionnalités Disponibles :</h4>
-            <ul>
-              <li><strong>Moteur SQLite WAL Natif :</strong> Base de données locale ultra-stable localisée dans <code>%APPDATA%/com.aquadro.pos</code> sans aucun fallback mémoire en production.</li>
-              <li><strong>Lecteur Code-barres USB Permanent :</strong> Détection continue du scanner HID avec isolation complète des champs de saisie manuelle.</li>
-              <li><strong>Module Caisse & Encaissement :</strong> Panier dynamique, calcul de monnaie rendu, enregistrement du paiement par carte bancaire, prévention des doublons avec idempotence.</li>
-              <li><strong>Transactions Atomiques :</strong> Rollback complet et intégrité totale en cas d'erreur de transaction financière ou d'anomalie de stock.</li>
-              <li><strong>Gestion des Retours & Remboursements :</strong> Réintégration automatique des articles au stock avec piste d'audit complète.</li>
-              <li><strong>Sessions de Caisse & Rapport Z :</strong> Clôture de caisse avec écart comptable et sauvegarde des totaux.</li>
-              <li><strong>Tauri 2 Auto-Updater :</strong> Intégration complète de l'Updater avec signature cryptographique Minisign (Ed25519) et distribution HTTPS.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
+          <div style="font-size: 0.82rem; color: #94A3B8; font-family: 'JetBrains Mono', monospace;">09 Octobre 2026</div>
+        </div>
+
+        <ul class="release-bullets">
+          <li><strong>Lecteur Code-barres USB Permanent :</strong> Capture ultra-rapide sans perte de focus.</li>
+          <li><strong>Gestion des Lots FEFO :</strong> Traçabilité des dates d'expiration et priorisation des ventes.</li>
+          <li><strong>Gestion des Crédits & Règlements :</strong> Suivi des dettes clients avec historique des versements.</li>
+          <li><strong>Clôture de Caisse Z :</strong> Vérification des écarts d'espèces et impression du rapport journalier.</li>
+        </ul>
+      </article>
+
     </div>
   </section>
 
-  <!-- System Requirements -->
-  <section class="specs-section" id="specs">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Spécifications Techniques</span>
-        <h2 class="section-title">Configuration Système Requise</h2>
-        <p class="section-desc">Aquadro POS est optimisé pour consommer un minimum de ressources matérielles.</p>
-      </div>
-
-      <div class="specs-grid">
-        <div class="spec-card">
-          <h4>Système d'Exploitation</h4>
-          <p>Windows 10 ou Windows 11 (Édition 64-bit)</p>
-        </div>
-        <div class="spec-card">
-          <h4>Processeur (CPU)</h4>
-          <p>Intel Core i3 / AMD Ryzen 3 ou équivalent (x86_64)</p>
-        </div>
-        <div class="spec-card">
-          <h4>Mémoire Vive (RAM)</h4>
-          <p>4 Go minimum (8 Go recommandés pour les gros catalogues)</p>
-        </div>
-        <div class="spec-card">
-          <h4>Espace Disque</h4>
-          <p>250 Mo d'espace libre pour l'application et la base SQLite</p>
-        </div>
-        <div class="spec-card">
-          <h4>Périphériques Recommandés</h4>
-          <p>Lecteur code-barres USB (Émulation Clavier HID), Imprimante thermique ESC/POS (58mm/80mm), Tiroir-caisse RJ11</p>
-        </div>
-        <div class="spec-card">
-          <h4>Connexion Internet</h4>
-          <p>Optionnelle (requise uniquement pour la vérification des mises à jour logicielles)</p>
-        </div>
-      </div>
-
-      <!-- Aquadro POS Gourmet Card -->
-      <div class="download-card gourmet">
-        <div class="download-card-body">
-          <div class="os-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E87524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 11h.01M11 15h.01M16 16h.01M2 16l20 6-6-20A20 20 0 0 0 2 16Z"/>
-            </svg>
-          </div>
-          <div class="download-info">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-              <span class="badge-gourmet">🍕 Édition Restauration & Pizzeria</span>
-              <span style="font-size: 0.75rem; color: #78716C; font-family: 'JetBrains Mono', monospace;">v1.0.1 Stable</span>
-            </div>
-            <h3 class="download-heading">Aquadro POS Gourmet pour Windows (64-bit)</h3>
-            <p class="download-meta">
-              Installeur officiel NSIS &bull; Gestion des مقادير & Ingrédients &bull; Calculateur de Rendement &bull; 100% Autonome
-            </p>
-            <div class="release-quick-meta">
-              <span>Version : <strong>1.0.1</strong></span>
-              <span>Publié le : <strong>22 Octobre 2026</strong></span>
-              <span>Architecture : <strong>x86_64</strong></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="download-actions">
-          <a id="gourmet-download-btn" href="https://github.com/sigoulojia/aquadro-pos-gourmet/releases/tag/v1.0.1" class="btn btn-lg btn-gourmet">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span>Télécharger Aquadro POS Gourmet (.exe)</span>
-          </a>
-
-          <a href="https://github.com/sigoulojia/aquadro-pos-gourmet" target="_blank" class="btn btn-lg btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            <span>Code Source & GitHub</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Support & Contact -->
-  <section class="support-section" id="support">
-    <div class="container support-container">
-      <div class="support-card">
-        <h2 class="support-title">Support Technique & Contact</h2>
-        <p class="support-desc">
-          Pour toute question relative au déploiement, à la configuration de vos imprimantes thermiques de caisse ou pour signaler une anomalie, notre équipe est à votre disposition.
-        </p>
-
-        <div class="support-details">
-          <div class="contact-item">
-            <span class="contact-label">Développeur & Éditeur :</span>
-            <span class="contact-value">Boudelaa Youcef Seddik (بوضلعة يوسف الصديق)</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Localisation :</span>
-            <span class="contact-value">Algérie (National Coverage)</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Dépôt du Projet :</span>
-            <a href="https://github.com/sigoulojia/aquadro-pos" class="contact-link" target="_blank" rel="noopener noreferrer">github.com/sigoulojia/aquadro-pos</a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Mises à Jour :</span>
-            <span class="contact-value">Canal HTTPS GitHub Releases Officiel</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aquadro POS Gourmet Card -->
-      <div class="download-card gourmet">
-        <div class="download-card-body">
-          <div class="os-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E87524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 11h.01M11 15h.01M16 16h.01M2 16l20 6-6-20A20 20 0 0 0 2 16Z"/>
-            </svg>
-          </div>
-          <div class="download-info">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
-              <span class="badge-gourmet">🍕 Édition Restauration & Pizzeria</span>
-              <span style="font-size: 0.75rem; color: #78716C; font-family: 'JetBrains Mono', monospace;">v1.0.1 Stable</span>
-            </div>
-            <h3 class="download-heading">Aquadro POS Gourmet pour Windows (64-bit)</h3>
-            <p class="download-meta">
-              Installeur officiel NSIS &bull; Gestion des مقادير & Ingrédients &bull; Calculateur de Rendement &bull; 100% Autonome
-            </p>
-            <div class="release-quick-meta">
-              <span>Version : <strong>1.0.1</strong></span>
-              <span>Publié le : <strong>22 Octobre 2026</strong></span>
-              <span>Architecture : <strong>x86_64</strong></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="download-actions">
-          <a id="gourmet-download-btn" href="https://github.com/sigoulojia/aquadro-pos-gourmet/releases/tag/v1.0.1" class="btn btn-lg btn-gourmet">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span>Télécharger Aquadro POS Gourmet (.exe)</span>
-          </a>
-
-          <a href="https://github.com/sigoulojia/aquadro-pos-gourmet" target="_blank" class="btn btn-lg btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            <span>Code Source & GitHub</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- =========================================================================
+       Pied de Page
+       ========================================================================= -->
   <footer class="site-footer">
-    <div class="container footer-container">
-      <p>&copy; 2026 Aquadro POS Algérie. Tous droits réservés.</p>
-      <p class="footer-credit">Conçu avec Tauri 2, Rust & React pour des performances desktop absolues.</p>
+    <div class="container">
+      <div class="footer-top">
+        <div class="brand">
+          <div class="brand-logo" style="width: 32px; height: 32px;">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4L28 26H4L16 4Z" fill="#60A5FA"/>
+              <circle cx="16" cy="19" r="4.5" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span style="font-weight: 800; color: #FFF; font-size: 1rem;">Aquadro POS</span>
+        </div>
+
+        <div style="display: flex; gap: 24px; font-weight: 600;">
+          <a href="#editions" style="color: #94A3B8; text-decoration: none;">Édition Gourmet</a>
+          <a href="#editions" style="color: #94A3B8; text-decoration: none;">Édition Retail</a>
+          <a href="https://github.com/sigoulojia/aquadro-pos-gourmet" target="_blank" style="color: #94A3B8; text-decoration: none;">GitHub Gourmet</a>
+          <a href="https://github.com/sigoulojia/aquadro-pos" target="_blank" style="color: #94A3B8; text-decoration: none;">GitHub Retail</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Aquadro POS Algérie. Tous droits réservés. Conçu pour le commerce réel.
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; font-weight: 700;">
+          <span>🇩🇿 Développé en Algérie</span>
+          <span>•</span>
+          <span style="color: #34D399;">100% Autonome & Déconnecté</span>
+        </div>
+      </div>
     </div>
   </footer>
 
